@@ -1,0 +1,55 @@
+/*
+Override the user's root font size to the standard.
+They recommend overriding user's font in absolute forcing them to zoom...
+https://adamwathan.me/dont-use-em-for-media-queries/
+
+They are nicer here and recommend using a percentage.
+https://engageinteractive.co.uk/blog/em-vs-rem-vs-px
+
+https://ryanfeigenbaum.com/easy-responsive-typography/
+
+https://zellwk.com/blog/rem-vs-em/
+ */
+html {
+    font-size: 62.5%;
+}
+
+/*Adding breakpoints for most popular media sizes*/
+/*https://zellwk.com/blog/media-query-units/*/
+@media screen and (min-width: 20em) and (max-width: 50em) {
+    html {
+        font-size: 1rem;
+    }
+
+    body {
+        font-size: 1.30rem;
+    }
+
+    .col-form-label {
+        margin-right: 2em;
+    }
+}
+
+@media screen and (min-width: 50em) and (max-width: 100em) {
+    html {
+        font-size: 1rem;
+    }
+
+    body {
+        font-size: 1.45rem;
+    }
+
+    .wbdv-field {
+        margin-top: 0.5em;
+    }
+}
+
+@media screen and (min-width: 100em) {
+    html {
+        font-size: 1rem;
+    }
+
+    body {
+        font-size: 1.7rem;
+    }
+}
