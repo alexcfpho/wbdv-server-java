@@ -8,9 +8,9 @@ body {
 
 p {
     font-family: sans-serif;
-    font-size: 1.1em;
+    font-size: .90em;
     font-weight: 320;
-    line-height: 1.4em;
+    line-height: 1.2em;
     color: #999;
     margin-left: 30px;
 }
@@ -29,26 +29,6 @@ a.article:hover {
     color: #fff !important;
 }
 
-/* Sourced https://bootstrapious.com/p/bootstrap-sidebar */
-.navbar {
-    padding: 15px 10px;
-    background: #fff;
-    border: none;
-    /* Make it curved */
-    border-radius: 6px;
-    margin-bottom: 40px;
-    margin-top: 40px;
-    margin-left: 20px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.divider {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
-}
-
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
@@ -57,7 +37,6 @@ ul ul a {
 
 /* I am so proud to figure this on my own. */
 .fa-circle:hover::before {
-
     display: none;
 }
 
@@ -74,156 +53,59 @@ ul ul a {
     line-height: 0;
 }
 
-/* ---------------------------------------------------
-                       SIDEBAR
------------------------------------------------------ */
-
-/* Spans the column  */
-.wrapper {
-    display: flex;
-    width: 100%;
-    /*overflow-x: hidden;*/
+.wbdv-module-bg {
+    background: #E0BBE4;
+    transition: all 0.5s;
 }
 
-#sidebar {
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    /* This stack order, greater number will put the element always in front! Like send to front... */
-    /* Example https://www.w3schools.com/cssref/playit.asp?filename=playcss_z-index */
-    /*z-index: 999;*/
-    margin-left: 0;
-    background-color: #E0BBE4;
-    color: #fff;
-    /* Animation transition :) */
-    transition: all 0.3s;
+.wbdv-header {
+    background: #E0BBE4;
 }
 
-/* Mixing class and id selectors not the best... https://dev.to/clairecodes/reasons-not-to-use-ids-in-css-4ni4 */
-/* Behavior is that the navbar using sidebar will override class level attributes */
-#sidebar.active {
-    margin-left: -250px;
-}
+/*.wbdv-topic-pill {*/
+/*    background: #6d7fcc;*/
+/*}*/
 
-#sidebar .sidebar-header {
-    padding: 20px;
-    background: #957DAD;
-}
+/*.wbdv-topic-pill-list {*/
+/*    border-radius: 2px;*/
+/*}*/
 
-#sidebar ul.modules {
-    padding: 10px 0;
-    border-bottom: 2px solid #503e63;
-}
+/*.wbdv-lesson-list {*/
+/*    background: #b2a1c4;*/
+/*    border: none;*/
+/*    border-radius: 6px;*/
+/*    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);*/
+/*}*/
 
-/* Responsively scale padding all around the dummy heading */
-#sidebar ul p {
-    color: #fff;
-    padding-left: 35px;
-    padding-top: 20px;
-    padding-bottom: 10px;
-}
 
-#sidebar ul li a {
-    padding: 10px 30px;
-    margin: 10px;
-    font-size: 1em;
-    /* strict toleration of elements all around for padding and margin */
-    display: block;
-    background-color: #6d7fcc;
-    border-radius: 3px;
+.wbdv-module-item ul li a:hover, .nav-link:hover {
+    background-color: #644d7b;
+    border-color: #7b5f97;
     color: #f7f5f9;
 }
 
-/* psuedo-class to apply hover */
-#sidebar ul li a:hover {
-    color: #fff;
-    background: #475ebf;
+.wbdv-module-item {
+    background-color: #957dad;
+    border-color: #957dad;
 }
 
-/* https://css-tricks.com/child-and-sibling-selectors/ */
-/* Using child combinator selector for depth 1 */
-#sidebar ul li.active > a,
-a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+.wbdv-module-item > .nav-link:active, .nav-link:focus, .active {
+    background-color: #414168;
+    border-color: #59598e;
+    color: #f7f5f9 !important;
 }
 
-a[data-toggle="collapse"] {
-    position: relative;
+.wbdv-module-list li:hover {
+    background-color: #644d7b;
+    border-color: #7b5f97;
+    color: #f7f5f9;
 }
 
-/* Apply this class to a nested unordered list as dropdown */
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
+.wbdv-module-list li.active {
+    background-color: #414168;
+    border-color: #59598e;
 }
 
-/* ---------------------------------------------------
-                    CONTENT STYLE
------------------------------------------------------ */
-
-#content-wrapper {
-    /* Responsively set the width of the div for content... this was eyeballed..*/
-    /* Probably not the best implementation? */
-    width: calc(100% - 11em);
-    min-height: 100vh;
-    transition: all 0.3s;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding-left: 4rem;
-    padding-right: 4rem;
-}
-
-#content-wrapper.active {
-    width: 100%;
-}
-
-/* ---------------------------------------------------
-                    COURSE WIDGET
------------------------------------------------------ */
-
-/*.wbdv-course-widget {*/
-/*    width: 100%;*/
-/*    display: inline-block;*/
-/*    border: 1px;*/
-/*    */
-/*    margin: 0;*/
-/*}*/
-
-/* ---------------------------------------------------
-                    MEDIAQUERIES
------------------------------------------------------ */
-
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -250px;
-    }
-
-    #sidebar.active {
-        margin-left: 0;
-    }
-
-    #content-wrapper {
-        width: 100%;
-    }
-
-    #content-wrapper.active {
-        width: calc(100% - 250px);
-    }
-
-    #sidebarCollapse span {
-        display: none;
-    }
-}
-
-@media (min-width: 768px), all {
-    .navbar-expand-md .navbar-toggler {
-        display: none;
-    }
+.wbdv-module-item-delete-btn {
+    float: right;
 }
