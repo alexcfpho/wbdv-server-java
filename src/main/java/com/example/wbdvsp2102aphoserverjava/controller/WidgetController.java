@@ -31,19 +31,19 @@ public class WidgetController {
     }
 
     @PostMapping("/api/topics/{topicId}/widgets")
-    public Widget createWidgetForTopic(
+    public Widget createWidget (
             @PathVariable("topicId") String tid, @RequestBody Widget widget) {
             return service.createWidgetForTopic(tid, widget);
-    }
-
-    @DeleteMapping("/api/widgets/{widgetId}")
-    public Integer deleteWidget(@PathVariable("widgetId") Long id) {
-        return service.deleteWidget(id);
     }
 
     @PutMapping("/api/widgets/{widgetId}")
     public Integer updateWidget(
             @PathVariable("widgetId") Long wid, @RequestBody Widget widget) {
         return service.updateWidget(wid, widget);
+    }
+
+    @DeleteMapping("/api/widgets/{widgetId}")
+    public Integer deleteWidget(@PathVariable("widgetId") Long id) {
+        return service.deleteWidget(id);
     }
 }
