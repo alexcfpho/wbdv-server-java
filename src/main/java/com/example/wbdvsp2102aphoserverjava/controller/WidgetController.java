@@ -11,7 +11,6 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class WidgetController {
 
-
     private final WidgetService service;
 
     @Autowired
@@ -30,10 +29,17 @@ public class WidgetController {
         return service.findWidgetsForTopic(tid);
     }
 
+    @GetMapping("/api/widgets/{widgetId}")
+    public Widget findWidgetById(
+            @PathVariable("widgetId") Long wid) {
+        return service.findWidgetById(wid);
+
+    }
+
     @PostMapping("/api/topics/{topicId}/widgets")
     public Widget createWidget (
             @PathVariable("topicId") String tid, @RequestBody Widget widget) {
-            return service.createWidgetForTopic(tid, widget);
+        return service.createWidgetForTopic(tid, widget);
     }
 
     @PutMapping("/api/widgets/{widgetId}")
@@ -43,7 +49,7 @@ public class WidgetController {
     }
 
     @DeleteMapping("/api/widgets/{widgetId}")
-    public Integer deleteWidget(@PathVariable("widgetId") Long id) {
-        return service.deleteWidget(id);
+    public Integer deleteWidget(@PathVariable("widgetId") Long wid) {
+        return service.deleteWidget(wid);
     }
 }

@@ -18,12 +18,14 @@ public class WidgetService {
         Widget w3 = new Widget(345l, "somename3", "EFG345", "PARAGRAPH", 1, 100, 25, 3, "p", "none", "some arbitrary value3", "paragraph widget");
         Widget w4 = new Widget(456l, "somename4", "6045c1c031027600173cbbc3", "HEADING", 3, 125, 50, 4, "h3", "none", "some arbitrary value4", "heading widget h3");
         Widget w5 = new Widget(567l, "somename5", "KLM567", "PARAGRAPH", 1, 100, 25, 5, "p", "none", "some arbitrary value5", "paragraph widget");
+        Widget w6 = new Widget(678l, "simpleWidget", "6045c1c031027600173cbbc3","HEADING");
 
         widgets.add(w1);
         widgets.add(w2);
         widgets.add(w3);
         widgets.add(w4);
         widgets.add(w5);
+        widgets.add(w6);
     }
 
     public List<Widget> findAllWidgets() {
@@ -38,6 +40,15 @@ public class WidgetService {
             }
         }
         return ws;
+    }
+
+    public Widget findWidgetById(Long widgetId) {
+        for (Widget w: widgets) {
+            if (w.getId().equals(widgetId)) {
+                return w;
+            }
+        }
+        return null;
     }
 
     public Widget createWidgetForTopic(String topicId, Widget widget) {
