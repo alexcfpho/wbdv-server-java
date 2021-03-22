@@ -15,15 +15,14 @@ public class Widget {
     private String value;
     private String text;
 
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
     public Widget() {
+    }
+
+    public Widget(Long id, String name, String topicId, String type) {
+        this.id = id;
+        this.name = name;
+        this.topicId = topicId;
+        this.type = type;
     }
 
     public Widget(Long id, String name, String topicId, String type, Integer size, Integer width, Integer height, Integer widgetOrder, String cssClass, String style, String value, String text) {
@@ -127,5 +126,13 @@ public class Widget {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }
