@@ -1,7 +1,13 @@
 package com.example.wbdvsp2102aphoserverjava.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="widgets")
 public class Widget {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     // created on generic server, gen by mongo. referenced by "_id" property.
@@ -136,3 +142,39 @@ public class Widget {
         this.text = text;
     }
 }
+
+/*
+    create table widget (
+       id bigint not null,
+        css_class varchar(255),
+        height integer,
+        name varchar(255),
+        size integer,
+        style varchar(255),
+        text varchar(255),
+        topic_id varchar(255),
+        type varchar(255),
+        value varchar(255),
+        widget_order integer,
+        width integer,
+        primary key (id)
+    ) engine=InnoDB
+ */
+
+/*
+create table widgets (
+       id bigint not null auto_increment,
+        css_class varchar(255),
+        height integer,
+        name varchar(255),
+        size integer,
+        style varchar(255),
+        text varchar(255),
+        topic_id varchar(255),
+        type varchar(255),
+        value varchar(255),
+        widget_order integer,
+        width integer,
+        primary key (id)
+    ) engine=InnoDB
+ */
