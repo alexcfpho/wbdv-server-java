@@ -8,18 +8,21 @@ public class Widget {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // Created by DB.
     private Long id;
     private String name;
-    // created on generic server, gen by mongo. referenced by "_id" property.
     private String topicId;
     private String type;
     private Integer size;
-    private Integer width, height;
-    private Integer widgetOrder;
+    private Integer width;
+    private Integer height;
+    private String src;
+    private String text;
+    private Boolean ordered;
+    private String value;
     private String cssClass;
     private String style;
-    private String value;
-    private String text;
+    private Integer widgetOrder;
 
     public Widget() {
     }
@@ -31,7 +34,7 @@ public class Widget {
         this.type = type;
     }
 
-    public Widget(Long id, String name, String topicId, String type, Integer size, Integer width, Integer height, Integer widgetOrder, String cssClass, String style, String value, String text) {
+    public Widget(Long id, String name, String topicId, String type, Integer size, Integer width, Integer height, String src, Integer widgetOrder, String cssClass, String style, String value, String text, Boolean ordered) {
         this.id = id;
         this.name = name;
         this.topicId = topicId;
@@ -39,11 +42,13 @@ public class Widget {
         this.size = size;
         this.width = width;
         this.height = height;
+        this.src = src;
         this.widgetOrder = widgetOrder;
         this.cssClass = cssClass;
         this.style = style;
         this.value = value;
         this.text = text;
+        this.ordered = ordered;
     }
 
     public Long getId() {
@@ -140,6 +145,22 @@ public class Widget {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public Boolean getOrdered() {
+        return ordered;
+    }
+
+    public void setOrdered(Boolean ordered) {
+        this.ordered = ordered;
+    }
+
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
     }
 }
 
